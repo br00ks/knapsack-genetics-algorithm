@@ -20,8 +20,10 @@ CROSSOVER_PROB = 0.95
 ELITISM_MAX = 2
 
 
+# reads the items from an input file
+# first value is weight, second value is value
 def read_items():
-    file_items = open("easy", "r")
+    file_items = open("medium", "r")
     for line in file_items.readlines():
         ITEMS.append([int(line.split(" ")[0]), int(line.split(" ")[1])])
     print(ITEMS)
@@ -58,6 +60,10 @@ def fitness(population):
     return fitness_values, population
 
 
+# create a new generation by using elitism
+# take the 2 best chromosomes from last generation and add it to the new generation
+# then randomly select by roulette wheel two parens, do crossover and mutate
+# add those 2 children to the new generation
 def create_new_generation(population, fit):
     print('##### create new generation #####')
     new_generation = []
@@ -80,6 +86,7 @@ def create_new_generation(population, fit):
     return new_generation
 
 
+# get the best two chromosomes from a population
 def add_elites(population, fit):
     first_highest = 0
     first_index = 0
@@ -98,11 +105,13 @@ def add_elites(population, fit):
     return elites
 
 
+# select parents from a population
 def select(population, fit):
     f_sum = sum(fit)
     return pick_parent(f_sum, population, fit), pick_parent(f_sum, population, fit)
 
 
+# pick parents using roulette wheel selection
 def pick_parent(f_sum, population, fit):
     random_integer = random.randint(0, f_sum)
     partial_sum = 0
@@ -113,7 +122,7 @@ def pick_parent(f_sum, population, fit):
             return chromosome
 
 
-# one point crossover
+# perform one point crossover
 def crossover(parent1, parent2):
     random_rate = random.random()
     # only do crossover if random rate < crossover probability
@@ -127,6 +136,7 @@ def crossover(parent1, parent2):
     return parent1, parent2
 
 
+# mutate each bit with a certain probability
 def mutate(chromosome):
     mutated_chromosome = []
     for bit in chromosome:
