@@ -11,6 +11,9 @@ The Knapsack Problem is a combinatorial optimization problem. Within a given set
 maximize  while                             
 The 0-1 Knapsack Problem is a specific problem KP where it is not allowed to take fractional amounts of items. Each item is either included or excluded.
 
+## Flowchart of the algorithm
+![alt text](https://github.com/br00ks/knapsack-genetics-algorithm/blob/master/diagram.PNG)
+
 
 ## References:
 - http://www.micsymposium.org/mics_2004/Hristake.pdf
