@@ -1,4 +1,4 @@
-# Solving the 0-1 Knapsack problem with Genetics algorithm
+# Solving the 0-1 Knapsack problem using Genetics algorithm
 Solve 0-1 knapsack problem with genetics algorithm
 
 This project is supposed to show an algorithm to solve the 0-1 knapsack problem with genetics algorithms.
